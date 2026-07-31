@@ -1,0 +1,7 @@
+{
+  "name": "dorm-snake-battle",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "寝室线上互动小游戏 · 贪吃蛇大作战 H5（纯前端零依赖，离线生成幽灵数据用 Node 运行 tools/gen_ghosts.js）"
+}

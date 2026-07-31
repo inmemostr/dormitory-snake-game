@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>贪吃蛇大作战 · 幽灵战场</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="ui">
+    <!-- 开始页 -->
+    <div id="menu" class="screen">
+      <div class="menu-card">
+        <div class="logo">🐍</div>
+        <h1 class="title">贪吃蛇大作战</h1>
+        <p class="subtitle">幽灵战场 · 社区异步对战</p>
+        <input id="nick" type="text" maxlength="12" autocomplete="off" placeholder="">
+        <button id="btn-start" class="btn-primary">开始游戏</button>
+        <div id="best-line" class="best-line">历史最高：—</div>
+        <div class="howto">
+          <p>👆 按住屏幕拖动控制方向</p>
+          <p>⚡ 按住右下角按钮加速（会消耗长度）</p>
+          <p>👻 半透明的是其他玩家的幽灵，小心！</p>
+          <p>🪦 墓碑是其他玩家的陨落之地</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 游戏中 HUD -->
+    <div id="hud" class="hidden">
+      <div id="hud-top">
+        <div id="hud-left">
+          <div id="hud-score">
+            <div class="score-row">
+              <span class="score-label">长度</span>
+              <span id="score-val">0</span>
+            </div>
+            <div class="score-row small">
+              <span id="kills-val">击杀 0</span>
+            </div>
+            <div class="best-rows">
+              <div id="today-best">今日最佳 0</div>
+              <div id="history-best">历史最高 0</div>
+            </div>
+          </div>
+          <div id="hud-champion">
+            <span class="crown">👑</span><span id="champion-text">—</span>
+          </div>
+        </div>
+        <div id="hud-right">
+          <div id="hud-rank">
+            <div class="rank-title">排行榜</div>
+            <ol id="rank-list"></ol>
+          </div>
+          <canvas id="minimap" width="96" height="96"></canvas>
+        </div>
+      </div>
+      <div id="powerup-indicator" class="hidden">
+        <div id="powerup-ring"><span id="powerup-icon"></span></div>
+      </div>
+      <div id="surge-banner" class="hidden">
+        <div id="surge-text">⚡ 加速狂潮 ⚡</div>
+        <div id="surge-sub">全员加速中！</div>
+      </div>
+      <div id="float-layer"></div>
+      <button id="btn-mute" aria-label="静音">🔊</button>
+      <button id="btn-shield" aria-label="护盾">
+        <span id="shield-icon">🛡</span>
+        <span id="shield-sweep"></span>
+      </button>
+      <div id="btn-boost">⚡</div>
+    </div>
+
+    <!-- 死亡结算页 -->
+    <div id="gameover" class="screen hidden">
+      <div class="menu-card">
+        <h2 class="go-title">本局结束</h2>
+        <div class="go-cause" id="death-cause"></div>
+        <div id="final-score">0</div>
+        <div id="new-record" class="hidden">🎉 新纪录！</div>
+        <div class="go-rank-wrap">
+          <div class="rank-title">本局排行</div>
+          <ol id="final-rank"></ol>
+        </div>
+        <button id="btn-retry" class="btn-primary">再来一局</button>
+        <button id="btn-home" class="btn-ghost">返回首页</button>
+      </div>
+    </div>
+
+    <!-- 横屏提示 -->
+    <div id="rotate-tip"><div>📱<br>请竖屏游玩</div></div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
